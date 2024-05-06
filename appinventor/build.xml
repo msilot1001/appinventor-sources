@@ -12,9 +12,6 @@
     App Inventor
   </description>
 
-
-  <copy toFile="${public.deps.dir}/socket.io-client.jar"  file="${lib.dir}/socket.io-client/socket.io-client.jar" />
-
   <target name="all">
     <ant inheritAll="false" useNativeBasedir="true" dir="appengine"/>
     <ant inheritAll="false" useNativeBasedir="true" dir="blocklyeditor"/>
