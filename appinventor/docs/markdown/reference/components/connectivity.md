@@ -12,6 +12,7 @@ Table of Contents:
 * [BluetoothClient](#BluetoothClient)
 * [BluetoothServer](#BluetoothServer)
 * [Serial](#Serial)
+* [SocketIO](#SocketIO)
 * [Web](#Web)
 
 ## ActivityStarter  {#ActivityStarter}
@@ -450,6 +451,32 @@ None
 
 {:id="Serial.WriteSerial" class="method"} <i/> WriteSerial(*data*{:.text})
 : Writes given data to serial.
+
+## SocketIO  {#SocketIO}
+
+Component for SocketIO
+
+
+
+### Properties  {#SocketIO-Properties}
+
+{:.properties}
+
+{:id="SocketIO.ServerIP" .text .ro} *ServerIP*
+: ip address of the server
+
+### Events  {#SocketIO-Events}
+
+{:.events}
+None
+
+
+### Methods  {#SocketIO-Methods}
+
+{:.methods}
+
+{:id="SocketIO.CreateSocket" class="method"} <i/> CreateSocket()
+: Method for CreateSocket
 
 ## Web  {#Web}
 

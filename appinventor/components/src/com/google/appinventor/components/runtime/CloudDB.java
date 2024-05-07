@@ -1462,13 +1462,18 @@ public class CloudDB extends AndroidNonvisibleComponent implements Component,
         // Get the value as a String
         String valueString = (String) valueReference.get();
 
-        // Parse the value from JSON
-        Object value = JsonUtil.getObjectFromJson(valueString);
+        try {
+          // Parse the value from JSON
+          Object value = JsonUtil.getObjectFromJson(valueString);
 
-        // Value is a List object; Convert and return it
-        if (value instanceof YailList) {
-          return (YailList)value;
+          // Value is a List object; Convert and return it
+          if (value instanceof YailList) {
+            return (YailList)value;
         }
+        } catch (Exception e) {
+          // TODO: handle exception
+        }
+        
 
         // Return empty list otherwise
         return YailList.makeEmptyList();
