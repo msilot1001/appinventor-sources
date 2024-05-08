@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "appinventor/components/src",
+        "appinventor/lib"
+    ],
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "appinventor/lib/socket.io-client/socket.io-client.jar"
+    ]
+}

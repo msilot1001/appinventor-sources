@@ -19,10 +19,9 @@ import java.util.concurrent.FutureTask;
 
 @DesignerComponent(
         description =
-                "Create any component available in your App Inventor distribution and create instances of " +
-                        "other extensions programmatically in runtime. Made with &#x2764;&#xfe0f; by Yusuf Cihan.",
+                "Socket.io java client in App Inventor 2 by Msilot1001",
         category = ComponentCategory.EXTENSION,
-        helpUrl = "https://github.com/ysfchn/DynamicComponents-AI2/blob/main/README.md",
+        helpUrl = "https://github.com/msilot1001/socketIO-extension",
         nonVisible = true,
         version = 1,
         versionName = "1.0.0"
