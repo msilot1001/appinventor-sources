@@ -1,8 +1,12 @@
-package com.google.appinventor.components.runtime;
+package io.github.msilot1001.appinventor;
 
+
+import com.google.appinventor.components.runtime.*;
 import com.google.appinventor.components.annotations.*;
 import com.google.appinventor.components.common.ComponentCategory;
 import com.google.appinventor.components.common.PropertyTypeConstants;
+import com.google.appinventor.components.runtime.AndroidNonvisibleComponent;
+import com.google.appinventor.components.runtime.ComponentContainer;
 import com.google.appinventor.components.runtime.util.AsynchUtil;
 import com.google.appinventor.components.runtime.util.ErrorMessages;
 import io.socket.client.IO;
@@ -17,14 +21,15 @@ import java.util.concurrent.FutureTask;
         description =
                 "Create any component available in your App Inventor distribution and create instances of " +
                         "other extensions programmatically in runtime. Made with &#x2764;&#xfe0f; by Yusuf Cihan.",
-        category = ComponentCategory.CONNECTIVITY,
+        category = ComponentCategory.EXTENSION,
         helpUrl = "https://github.com/ysfchn/DynamicComponents-AI2/blob/main/README.md",
         nonVisible = true,
         version = 1,
         versionName = "1.0.0"
 )
 @UsesPermissions(permissionNames = "android.permission.INTERNET")
-@SimpleObject()
+@UsesLibraries(libraries = "socket.io-client.jar")
+@SimpleObject(external = true)
 public class SocketIO extends AndroidNonvisibleComponent {
     private String serverIP = "0.0.0.0";
     private boolean reconnect = true;
@@ -81,6 +86,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies whether reconnection is enabled or not
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_BOOLEAN, defaultValue = "true")
+    @SimpleProperty
     public void Reconnection(boolean reconnect) {
         this.reconnect = reconnect;
     }
@@ -102,6 +108,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies the number of reconnection attempts before giving up.
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_INTEGER, defaultValue = "2147483647")
+    @SimpleProperty
     public void ReconnectionAttempts(int reconnectionAttempts) {
         this.reconnectionAttempts = reconnectionAttempts;
     }
@@ -123,6 +130,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies the initial delay before reconnection in milliseconds (affected by the randomizationFactor value).
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_INTEGER, defaultValue = "1000")
+    @SimpleProperty
     public void ReconnectionDelay(int reconnectionDelay) {
         this.reconnectionDelay = reconnectionDelay;
     }
@@ -144,6 +152,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies the maximum delay between two reconnection attempts. Each attempt increases the reconnection delay by 2x.
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_INTEGER, defaultValue = "5000")
+    @SimpleProperty
     public void ReconnectionDelayMax(int reconnectionDelayMax) {
         this.reconnectionDelayMax = reconnectionDelayMax;
     }
@@ -165,6 +174,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies the randomization factor used when reconnecting (so that the clients do not reconnect at the exact same time after a server crash, for example).
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_FLOAT, defaultValue = "0.5")
+    @SimpleProperty
     public void RandomizationFactor(double randomizationFactor) {
         this.randomizationFactor = randomizationFactor;
     }
@@ -186,6 +196,7 @@ public class SocketIO extends AndroidNonvisibleComponent {
      * Specifies the timeout in milliseconds for each connection attempt.
      */
     @DesignerProperty(editorType = PropertyTypeConstants.PROPERTY_TYPE_INTEGER, defaultValue = "20000")
+    @SimpleProperty
     public void Timeout(long timeout) {
         this.timeout = timeout;
     }

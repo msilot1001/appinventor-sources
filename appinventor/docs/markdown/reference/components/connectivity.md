@@ -462,8 +462,26 @@ Component for SocketIO
 
 {:.properties}
 
+{:id="SocketIO.RandomizationFactor" .number .ro} *RandomizationFactor*
+: The randomization factor used when reconnecting (so that the clients do not reconnect at the exact same time after a server crash, for example).
+
+{:id="SocketIO.Reconnection" .boolean .ro} *Reconnection*
+: The boolean of whether reconnection is enabled or not
+
+{:id="SocketIO.ReconnectionAttempts" .number .ro} *ReconnectionAttempts*
+: The number of reconnection attempts before giving up.
+
+{:id="SocketIO.ReconnectionDelay" .number .ro} *ReconnectionDelay*
+: The initial delay before reconnection in milliseconds (affected by the randomizationFactor value).
+
+{:id="SocketIO.ReconnectionDelayMax" .number .ro} *ReconnectionDelayMax*
+: The maximum delay between two reconnection attempts. Each attempt increases the reconnection delay by 2x.
+
 {:id="SocketIO.ServerIP" .text .ro} *ServerIP*
-: ip address of the server
+: The IP of the server connecting to
+
+{:id="SocketIO.Timeout" .number .ro} *Timeout*
+: The timeout in milliseconds for each connection attempt.
 
 ### Events  {#SocketIO-Events}
 
@@ -476,7 +494,7 @@ None
 {:.methods}
 
 {:id="SocketIO.CreateSocket" class="method"} <i/> CreateSocket()
-: Method for CreateSocket
+: Creates a Socket to the server with the provided IP
 
 ## Web  {#Web}
 
